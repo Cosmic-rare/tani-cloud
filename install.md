@@ -14,8 +14,9 @@ $ vi /etc/fstab
 $ vi /etc/hosts
 
 # Settings for Kubernetes
-XXX.XXX.XXX.XXX master
-XXX.XXX.XXX.XXX worker
+192.168.3.180 k8s-master
+192.168.3.181 k8s-worker-01
+192.168.3.182 k8s-worker-02
 
 $ cat > /etc/modules-load.d/containerd.conf <<EOF
 overlay
@@ -52,12 +53,13 @@ $ sudo apt-mark hold kubelet kubeadm kubectl
 ## MasterNode
 
 ```bash
-$ kubeadm init --control-plane-endpoint=192.168.X.X:6443 --pod-network-cidr=10.XX.0.0/16
+$ kubeadm init --control-plane-endpoint=192.168.3.180:6443 --pod-network-cidr=10.88.0.0/16
 $ exit
 $ mkdir -p $HOME/.kube
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
-$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+$ wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+$ kubectl apply -f kube-flannel.yml
 ```
 
 ## WorkerNode
