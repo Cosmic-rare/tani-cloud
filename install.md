@@ -48,6 +48,7 @@ deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 $ apt-get update && apt-get install -y kubelet kubeadm kubectl
 $ sudo apt-mark hold kubelet kubeadm kubectl
+$ apt install -y nfs-common
 ```
 
 ## MasterNode
