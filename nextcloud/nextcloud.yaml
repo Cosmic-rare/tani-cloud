@@ -16,18 +16,18 @@ spec:
       containers:
       - name: nextcloud
         image: nextcloud
-        # volumeMounts:
-        # - name: nextcloud
-        #   mountPath: /var/www/html/
-        # ports:
-        #  - containerPort: 80
-  # volumeClaimTemplates:
-  # - metadata:
-  #     name: nextcloud
-  #   spec:
-  #     storageClassName: ssd-client
-  #     accessModes:
-  #     - ReadWriteOnce
-  #     resources:
-  #       requests:
-  #         storage: 16Gi
+        volumeMounts:
+        - name: nextcloud
+          mountPath: /var/www/html/
+        ports:
+         - containerPort: 80
+  volumeClaimTemplates:
+  - metadata:
+      name: nextcloud
+    spec:
+      storageClassName: ssd-client
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 8Gi
