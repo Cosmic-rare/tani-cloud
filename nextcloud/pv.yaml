@@ -10,6 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Recycle
+  storageClassName: ssd-client
   nfs:
     server: 192.168.3.199
     path: /export/nfs/nextcloud
