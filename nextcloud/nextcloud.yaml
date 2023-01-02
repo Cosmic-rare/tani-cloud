@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nextcloud
+spec:
+  serviceName: nextcloud
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloud
+  template:
+    metadata:
+      labels:
+        app: nextcloud
+    spec:
+      containers:
+      - name: nextcloud
+        image: nextcloud
+        volumeMounts:
+        - name: nextcloud
+          mountPath: /var/www/html/
+        env:
+          - name: NEXTCLOUD_ADMIN_USER
+            value: "admin"
+          - name: NEXTCLOUD_ADMIN_PASSWORD
+            value: "hello"
+  volumeClaimTemplates:
+  - metadata:
+      name: nextcloud
+    spec:
+      storageClassName: ssd-client
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 16Gi
