@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nextcloud
-        image: nextcloud
+        image: nextcloud:25
         volumeMounts:
         - name: nextcloud
           mountPath: /var/www/html/
@@ -26,8 +26,6 @@ spec:
             value: "hello"
         ports:
          - containerPort: 80
-           name: http-port
-           protocol: TCP
   volumeClaimTemplates:
   - metadata:
       name: nextcloud
