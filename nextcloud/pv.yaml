@@ -6,11 +6,11 @@ metadata:
     volume.beta.kubernetes.io/storage-class: "ssd-client"
 spec:
   capacity:
-    storage: 16Gi
+    storage: 8Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Recycle
   storageClassName: ssd-client
   nfs:
     server: 192.168.3.199
-    path: /export/nfs/nextcloud
+    path: /export/nfs/nextcloud/nextcloud
