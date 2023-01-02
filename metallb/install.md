@@ -1,7 +1,6 @@
 [参考にしたサイト](https://blog.framinal.life/entry/2020/04/16/022042)
 
 ```bash
-$ mkdir metallb ; cd metallb
 $ kubectl apply -f namespace.yaml
 $ kubectl apply -f metallb.yaml
 # On first install only
