@@ -20,23 +20,6 @@ NAME         READY   UP-TO-DATE   AVAILABLE   AGE
 controller   1/1     1            1           2m16s
 ```
 
-```yaml
-# metallb-config.yaml
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  namespace: metallb-system
-  name: config
-data:
-  config: |
-    address-pools:
-    - name: default
-      protocol: layer2
-      addresses:
-      - 192.168.10.10-192.168.10.30
-```
-
 ```bash
 $ kubectl apply -f metallb-config.yaml 
 configmap/config created
