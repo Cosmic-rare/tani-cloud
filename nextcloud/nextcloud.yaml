@@ -24,6 +24,10 @@ spec:
             value: "admin"
           - name: NEXTCLOUD_ADMIN_PASSWORD
             value: "hello"
+        ports:
+         - containerPort: 80
+           name: http-port
+           protocol: TCP
   volumeClaimTemplates:
   - metadata:
       name: nextcloud
