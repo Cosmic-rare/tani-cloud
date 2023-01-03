@@ -3,5 +3,5 @@ $ kubectl apply -f insttall.yaml
 ```
 
 ```bash
-$ kubectl get svc -n ingress-system
+$ kubectl get svc -n ingress-nginx
 ```
