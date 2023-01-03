@@ -10,7 +10,8 @@ metadata:
   namespace: default
 spec:
   rules:
-  - http:
+  - host: "foo.bar.com"
+    http:
       paths:
       - path: /
         backend:
