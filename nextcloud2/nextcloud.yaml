@@ -19,6 +19,9 @@ spec:
         volumeMounts:
         - name: nextcloud2
           mountPath: /var/www/html/
+        env:
+          - name: NEXTCLOUD_TRUSTED_DOMAINS
+            value: "192.168.3.221"
         ports:
          - containerPort: 80
   volumeClaimTemplates:
